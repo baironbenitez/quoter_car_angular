@@ -4,6 +4,8 @@ import { HeaderComponent } from './header/header.component';
 import { InfoComponent } from './info/info.component';
 import { FormComponent } from './form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ResultComponent } from './result/result.component';
+import { ErrorComponent } from './error/error.component';
 
 
 
@@ -11,7 +13,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     HeaderComponent,
     InfoComponent,
-    FormComponent
+    FormComponent,
+    ResultComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports:[
     HeaderComponent,
     InfoComponent,
-    FormComponent
+    FormComponent,
+    ResultComponent
   ]
 })
 export class ComponentsModule { }
