@@ -7,7 +7,7 @@ import { Info } from 'src/app/interface/Info.interface';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-  @Input() info!: Partial<Info>;
+  @Input() info!: Info;
   @Input() result = 0;
 
   constructor() { }
