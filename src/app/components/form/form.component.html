@@ -1,0 +1,32 @@
+<form [formGroup]="form" class="p-3" (ngSubmit)="submitForm()">
+    <div class="form-group d-flex align-items-center mb-3">
+      <span for="brand" class="col-3 text-center">Marca</span>
+      <select class="ms-3 form-control"formControlName="brand">
+        <option value="null" disabled selected>-- Selecciona marca --</option>
+        <option [value]="1">Americano</option>
+        <option [value]="2">Europeo</option>
+        <option [value]="3">Asiatico</option>
+      </select>
+    </div>
+    <div class="form-group d-flex align-items-center mb-3">
+        <span for="year" class="col-3 text-center">Año</span>
+        <select class="ms-3 form-control"formControlName="year">
+            <option value="null">-- Selecciona el año --</option>
+            <option [value]="year" *ngFor="let year of years">{{year}}</option>
+        </select>
+    </div>
+    <div class="form-control d-flex align-items-center mb-3 border-0 p-0">
+        <span for="year" class="col-3 text-center">Año</span>
+        <div class="ms-3">
+            <div class="form-check d-flex p-0">
+                <label class="form-check-label me-3">
+                    <input class="form-check-input d-inline-block ms-0 me-2" formControlName="plan" type="radio" value="basic">Basico
+                </label>
+                <label class="form-check-label">
+                    <input class="form-check-input d-inline-block ms-0 me-2" formControlName="plan" type="radio" value="complete"> Completo
+                </label>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-submit fw-bold w-100">Cotizar</button>
+</form>
