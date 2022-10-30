@@ -3,30 +3,34 @@
       <span for="brand" class="col-3 text-center">Marca</span>
       <select class="ms-3 form-control"formControlName="brand">
         <option value="null" disabled selected>-- Selecciona marca --</option>
-        <option [value]="1">Americano</option>
-        <option [value]="2">Europeo</option>
-        <option [value]="3">Asiatico</option>
+        <option value="Americano">Americano</option>
+        <option value="Europeo">Europeo</option>
+        <option value="Asiatico">Asiatico</option>
       </select>
     </div>
+    <app-error *ngIf="showErrors && form.controls.brand.invalid" message="La marca es requerida"></app-error>
     <div class="form-group d-flex align-items-center mb-3">
         <span for="year" class="col-3 text-center">Año</span>
-        <select class="ms-3 form-control"formControlName="year">
-            <option value="null">-- Selecciona el año --</option>
+        <select class="ms-3 form-control" formControlName="year">
+            <option value="null" disabled>-- Selecciona el año --</option>
             <option [value]="year" *ngFor="let year of years">{{year}}</option>
         </select>
     </div>
+    <app-error *ngIf="showErrors && form.controls.year.invalid" message="El año es requerido"></app-error>
     <div class="form-control d-flex align-items-center mb-3 border-0 p-0">
-        <span for="year" class="col-3 text-center">Año</span>
+        <span for="year" class="col-3 text-center">Plan</span>
         <div class="ms-3">
             <div class="form-check d-flex p-0">
                 <label class="form-check-label me-3">
-                    <input class="form-check-input d-inline-block ms-0 me-2" formControlName="plan" type="radio" value="basic">Basico
+                    <input class="form-check-input d-inline-block ms-0 me-2" formControlName="plan" type="radio" value="Basico">Basico
                 </label>
                 <label class="form-check-label">
-                    <input class="form-check-input d-inline-block ms-0 me-2" formControlName="plan" type="radio" value="complete"> Completo
+                    <input class="form-check-input d-inline-block ms-0 me-2" formControlName="plan" type="radio" value="Completo"> Completo
                 </label>
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary btn-submit fw-bold w-100">Cotizar</button>
+    <app-error *ngIf="showErrors && form.controls.plan.invalid" message="El plan es requerido"></app-error>
+    <button type="submit" class="btn btn-primary btn-submit fw-bold w-100 mb-3" [disabled]="submit">Cotizar</button>
+    <app-result *ngIf="showInfo" [info]="form.value" [result]="result"></app-result>
 </form>
